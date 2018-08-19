@@ -17,18 +17,5 @@ source_list
   ../../src/utils.h
 )
 
-
-if(CMAKE_BUILD_TYPE MATCHES "Develop")
-  add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-  add_definitions(-DGB_INI_MAX_SECTION_LENGTH=16)
-  add_definitions(-DGB_INI_MAX_NAME_LENGTH=16)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -MMD -MP -MP -Wall -Wextra -Werror -Os -g -fomit-frame-pointer -m64 -fno-exceptions")
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -MMD -MP -MP -Wall -Wextra -Werror -Os -g -fomit-frame-pointer -m64")
-endif()
-
-
-if(CMAKE_BUILD_TYPE MATCHES "Develop")
-  add_executable(touch-joy ${source_list})
-  target_link_libraries(touch-joy gdi32)
-endif()
-
+add_executable(touch-joy ${source_list})
+target_link_libraries(touch-joy gdi32)

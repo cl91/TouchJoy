@@ -196,9 +196,11 @@ int main(int argc, char** argv)
 #endif
 
 
-#ifdef _MSC_VER
+#if defined(__GNUC__) || defined(__clang__)
+#define gb_inline inline __attribute__((always_inline))
+#elif defined(_MSC_VER)
 #define gb_inline __forceinline
-#else	/* Let's guess. GCC? */
+#else
 #define gb_inline inline
 #endif
 
