@@ -230,7 +230,7 @@ static utest_fixture fixture_name = { #fixture_name, setup, teardown, {
 #endif
 
 // Global state
-static utest_state g_utest_state;
+utest_state g_utest_state;
 
 void utest_print(const char* message)
 {

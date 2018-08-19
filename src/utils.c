@@ -1,7 +1,7 @@
 #define WIN32_LEAN_AND_MEAN
 #define VC_EXTRALEAN
-#include <Windows.h>
-#include <varargs.h>
+#include <windows.h>
+#include <stdarg.h>
 #include <stdio.h>
 
 #define MAX_DEBUG_MSG 512

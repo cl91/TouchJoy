@@ -196,14 +196,10 @@ int main(int argc, char** argv)
 #endif
 
 
-#ifndef _MSC_VER
-#ifdef __cplusplus
-#define gb_inline inline
-#else
-#define gb_inline
-#endif
-#else
+#ifdef _MSC_VER
 #define gb_inline __forceinline
+#else	/* Let's guess. GCC? */
+#define gb_inline inline
 #endif
 
 #include <stdio.h>

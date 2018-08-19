@@ -2,8 +2,36 @@
 
 #define WIN32_LEAN_AND_MEAN
 #define VC_EXTRALEAN
-#include <Windows.h>
+#include <windows.h>
 #include <windowsx.h>
+
+#if WINVER < 0x0601
+#define TWF_FINETOUCH 1
+#define TWF_WANTPALM 2
+#define TOUCHEVENTF_MOVE 0x1
+#define TOUCHEVENTF_DOWN 0x2
+#define TOUCHEVENTF_UP 0x4
+#define WM_TOUCH 0x240
+
+DECLARE_HANDLE(HTOUCHINPUT);
+
+typedef struct {
+    LONG x;
+    LONG y;
+    HANDLE hSource;
+    DWORD dwID;
+    DWORD dwFlags;
+    DWORD dwMask;
+    DWORD dwTime;
+    ULONG_PTR dwExtraInfo;
+    DWORD cxContact;
+    DWORD cyContact;
+} TOUCHINPUT, *PTOUCHINPUT;
+
+WINUSERAPI WINBOOL WINAPI GetTouchInputInfo (HTOUCHINPUT hTouchInput, UINT cInputs, PTOUCHINPUT pInputs, int cbSize);
+WINUSERAPI WINBOOL WINAPI CloseTouchInputHandle (HTOUCHINPUT hTouchInput);
+WINUSERAPI WINBOOL WINAPI RegisterTouchWindow (HWND hwnd, ULONG ulFlags);
+#endif
 
 #include "utils.h"
 
@@ -157,6 +185,8 @@ void HandleUpDown(Button* button, bool down)
 	case BTN_QUIT:
 		HandleQuitButton(button, down);
 		break;
+	case BTN_STICK:
+		break;	/* FIXME? */
 	}
 }
 

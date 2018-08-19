@@ -29,6 +29,6 @@ endif()
 
 if(CMAKE_BUILD_TYPE MATCHES "Develop")
   add_executable(touch-joy ${source_list})
-  target_link_libraries(touch-joy)
+  target_link_libraries(touch-joy gdi32)
 endif()
 

@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #define WIN32_LEAN_AND_MEAN
 #define VC_EXTRALEAN
-#include <Windows.h>
+#include <windows.h>
 
 #include "gamepad.h"
 #include "gamepad_window.h"

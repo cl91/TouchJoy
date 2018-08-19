@@ -52,7 +52,7 @@ bool LoadButtonImage(const char* path, Button* button)
 	bmi.bmiHeader.biBitCount = 32;
 	bmi.bmiHeader.biCompression = BI_RGB;
 	stbi_uc* out;
-	HBITMAP bitmap = CreateDIBSection(hdc, &bmi, DIB_RGB_COLORS, &out, NULL, 0);
+	HBITMAP bitmap = CreateDIBSection(hdc, &bmi, DIB_RGB_COLORS, (void **) &out, NULL, 0);
 
 	// Transfer pixels to the DIB
 	if (bitmap)

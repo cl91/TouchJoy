@@ -30,6 +30,6 @@ endif()
 
 if(CMAKE_BUILD_TYPE MATCHES "Develop")
   add_executable(test ${source_list})
-  target_link_libraries(test)
+  target_link_libraries(test gdi32)
 endif()
 
