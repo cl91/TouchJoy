@@ -1,5 +1,5 @@
 set(CMAKE_SYSTEM_NAME Windows)
-set(CMAKE_BUILD_TYPE "Develop")
+set(CMAKE_BUILD_TYPE "Release")
 
 set(triple x86_64-pc-windows-gnu)
 

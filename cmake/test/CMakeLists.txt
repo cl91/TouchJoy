@@ -19,5 +19,5 @@ source_list
 
 add_definitions(-D_TEST)
 
-add_executable(test ${source_list})
-target_link_libraries(test gdi32)
+add_executable(test_touchjoy ${source_list})
+target_link_libraries(test_touchjoy gdi32)

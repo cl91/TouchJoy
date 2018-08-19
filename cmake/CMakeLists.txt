@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 2.8.4)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 add_definitions(-DGB_INI_MAX_SECTION_LENGTH=16)
 add_definitions(-DGB_INI_MAX_NAME_LENGTH=16)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--subsystem,windows")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,--subsystem,windows")
 
 if(CMAKE_BUILD_TYPE MATCHES "Develop")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -MMD -MP -MP -Wall -Wextra -Werror -Os -g -fomit-frame-pointer -m64 -fno-exceptions")
